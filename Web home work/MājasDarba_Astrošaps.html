@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript">
+function maxiL(lauks,garums){
+    if (lauks.value.length > garums){
+        lauks.value = lauks.value.slice(0,garums)
+    }
+}
+function random(max){
+    return Math.floor(Math.random() * max);
+}
+function Arsts(){
+    var num = random(4);
+    var arsts
+    if(num==0){
+        arsts="Doktors Roberts Čengs"
+    }else if(num==1){
+        arsts="Doktors Lorenss Kūtners"
+    }else if(num==2){
+        arsts="Doktors Kriss Taubs"
+    }else if(num==3){
+        arsts="Doktors Alisona Kamerona"
+    }else if(num==4){
+        arsts="Doktors Remijsa Hadlija"
+    }
+    if(document.getElementById("vards1").value == 0 || document.getElementById("uzvards1").value == 0 || document.getElementById("Bvards1").value == 0 ||document.getElementById("Buzvards1").value == 0 ||document.getElementById("Bvecums1").value == 0 || document.getElementById("Bvecums1").value > 21){
+        alert("Ievades kļūda")
+    }
+    else{
+        alert("Jūsu ārsts: " + arsts);
+    }
+}
+function pieraksta(){
+    var vards = document.getElementById("vards").value
+    var uzvards = document.getElementById("uzvards").value
+    var Bvards = document.getElementById("Bvards").value
+    var Buzvards = document.getElementById("Buzvards").value
+    var Bvecums = document.getElementById("Bvecums").value
+    var arsts = document.getElementById("Arsts").value
+    var date = document.getElementById("date").value
+    var laiks = document.getElementById("laiks").value
+    var gads
+    var diena = new Date(date)
+    if(Bvecums<10){
+        gads="gadus vecs"
+    }
+    else{
+        gads="gadu vecumā"
+    }
+    if(vards == 0 || uzvards == 0 || Bvards == 0 ||Buzvards == 0 ||Bvecums == 0 ||arsts == 0 ||date == 0 ||laiks == 0||Bvecums > 21){
+        alert("Ievades kļūda")
+    }
+    else{
+        [stundas,minutes] = laiks.split(":").map(Number);
+
+        if(diena.getDay() > 0 && diena.getDay() < 6){
+            if (stundas > 8 && stundas < 19) {
+                alert("Vecāks: " + vards + " " + uzvards + "\n" + "Bērns: " + Bvards + " " + Buzvards + " " + Bvecums + " " + gads +"\n" + "Tikšanās pie ārsta: " + arsts + " notiks " + date + " plkst. " + laiks);
+            } else if (stundas === 8 && minutes >= 0) {
+                alert("Vecāks: " + vards + " " + uzvards + "\n" + "Bērns: " + Bvards + " " + Buzvards + " " + Bvecums + " " + gads +"\n" + "Tikšanās pie ārsta: " + arsts + " notiks " + date + " plkst. " + laiks);
+            } else if (stundas === 19 && minutes <= 0) {
+                alert("Vecāks: " + vards + " " + uzvards + "\n" + "Bērns: " + Bvards + " " + Buzvards + " " + Bvecums + " " + gads +"\n" + "Tikšanās pie ārsta: " + arsts + " notiks " + date + " plkst. " + laiks);
+            } else {
+                alert("Ievades kļūda\nMēs esam atvērti no 8:00 līdz 19:00 darba dienās.")
+            }
+        }
+        if(diena.getDay() == 6){
+            if (stundas > 8 && stundas < 18) {
+                alert("Vecāks: " + vards + " " + uzvards + "\n" + "Bērns: " + Bvards + " " + Buzvards + " " + Bvecums + " " + gads +"\n" + "Tikšanās pie ārsta: " + arsts + " notiks " + date + " plkst. " + laiks);
+            } else if (stundas === 8 && minutes >= 0) {
+                alert("Vecāks: " + vards + " " + uzvards + "\n" + "Bērns: " + Bvards + " " + Buzvards + " " + Bvecums + " " + gads +"\n" + "Tikšanās pie ārsta: " + arsts + " notiks " + date + " plkst. " + laiks);
+            } else if (stundas === 18 && minutes <= 0) {
+                alert("Vecāks: " + vards + " " + uzvards + "\n" + "Bērns: " + Bvards + " " + Buzvards + " " + Bvecums + " " + gads +"\n" + "Tikšanās pie ārsta: " + arsts + " notiks " + date + " plkst. " + laiks);
+            } else {
+                alert("Ievades kļūda\nSestdien mēs esam atvērti no 8:00 līdz 18:00")
+            }
+        }
+        if(diena.getDay() == 0){
+            if (stundas > 11 && stundas < 17) {
+                alert("Vecāks: " + vards + " " + uzvards + "\n" + "Bērns: " + Bvards + " " + Buzvards + " " + Bvecums + " " + gads +"\n" + "Tikšanās pie ārsta: " + arsts + " notiks " + date + " plkst. " + laiks);
+            } else if (stundas === 11 && minutes >= 30) {
+                alert("Vecāks: " + vards + " " + uzvards + "\n" + "Bērns: " + Bvards + " " + Buzvards + " " + Bvecums + " " + gads +"\n" + "Tikšanās pie ārsta: " + arsts + " notiks " + date + " plkst. " + laiks);
+            } else if (stundas === 17 && minutes <= 30) {
+                alert("Vecāks: " + vards + " " + uzvards + "\n" + "Bērns: " + Bvards + " " + Buzvards + " " + Bvecums + " " + gads +"\n" + "Tikšanās pie ārsta: " + arsts + " notiks " + date + " plkst. " + laiks);
+            } else {
+                alert("Ievades kļūda\nSvētdien mēs esam atvērti no 11:30 līdz 17:30.")
+            }
+        }
+    }
+
+}
+function attirit1(){
+    document.getElementById("vards1").value = ""
+    document.getElementById("uzvards1").value = ""
+    document.getElementById("Bvards1").value = ""
+    document.getElementById("Buzvards1").value = ""
+    document.getElementById("Bvecums1").value = ""
+}
+function attirit2(){
+    document.getElementById("vards").value = ""
+    document.getElementById("uzvards").value = ""
+    document.getElementById("Bvards").value = ""
+    document.getElementById("Buzvards").value = ""
+    document.getElementById("Bvecums").value = ""
+    document.getElementById("Arsts").value = ""
+    document.getElementById("date").value = ""
+    document.getElementById("laiks").value = ""
+}
+function Mums(){
+    document.getElementById("HOP").innerHTML = "Mūsu misija";
+    document.getElementById("APR").innerHTML = "Bērnu klīnikas misija ir nodrošināt kvalitatīvas medicīniskās aprūpes pieejamību visām ģimenēm Latvijā.";
+    document.getElementById("APR1").innerHTML = "Aicinām Jūs apmeklēt Bērnu klīniku Rīgā. Mēs rūpējamies par bērniem šajā pilsētā jau kopš 2025. gada, un jūs varat būt mierīgi, zinot, ka jūsu bērni saņems vislabāko medicīnisko aprūpi no pieredzējušākajiem ārstiem. Mēs ar nepacietību gaidām tikšanos ar jums!";
+    document.getElementById("APR2").innerHTML = "<img src='https://www.svgrepo.com/show/475382/sun-sunrise.svg' alt='sun' >";
+    document.getElementById("APR3").innerHTML = "";
+}
+
+function Polik(){
+    document.getElementById("HOP").innerHTML = "Mēs esam atvērti visās vietās.";
+    document.getElementById("APR").innerHTML = "";
+    document.getElementById("APR1").innerHTML = "";
+    document.getElementById("APR2").innerHTML = "<img src='https://www.architectandinteriorsindia.com/cloud/2022/12/20/ALA_PC_View-from-kids-area-768x1024.jpg' alt='inside' style='width:500px;height:700px;'>";
+    document.getElementById("APR3").innerHTML = "Cenšoties apmierināt mūsu pacientu vajadzības, Bērnu klīnika tagad piedāvā ārpusstundu konsultācijas pastāvīgajiem pacientiem, lai apmeklētu pacientus visās Rīgas nodaļās. Nakts vizīšu laiki atšķiras atkarībā no atrašanās vietas.";
+}
+function Vecak(){
+    document.getElementById("HOP").innerHTML = "Vecākiem";
+    document.getElementById("APR").innerHTML = "<table border='1'><tr><td></td><th>Bērni, zīdaiņi un mazbērni</th><th>Skolas vecuma bērni</th><th>Pusaudži</th></tr><tr><th>Ieteicamie apmeklējumi</th><td>Mēs iesakām ieplānot vizīti pie mūsu ārstiem 2-3 dienas pēc tam, kad esat atstājis slimnīcu ar jaundzimušo. Pēc tam mēs ievērojam Eiropas Bērnu profilaktiskās veselības aprūpes vadlīniju ieteikumus un iesakām apmeklēt jūsu mazuli šādos vecumos: 2 nedēļas, 2 mēneši, 4 mēneši, 6 mēneši, 9 mēneši, 12 mēneši, 15 mēneši, 18 mēneši, 24 mēneši, 30 mēneši un 3 gadi.</td><td>Mēs ievērojam Eiropas Bērnu profilaktiskās aprūpes vadlīniju ieteikumus un iesakām katru gadu apmeklēt jūsu skolas vecuma bērnu vecumā no 4 līdz 11 gadiem. Lūdzu, ņemiet vērā, ka labi bērnu apmeklējumi 4 vai 5 gadu vecumā un 11 gadu vecumā ir īpaši svarīgi, jo šajās tikšanās reizēs tiek ievadītas skolā nepieciešamās vakcīnas.</td><td>Mēs ievērojam Eiropas bērnu profilaktiskās veselības aprūpes pamatnostādnes un iesakām katru gadu apmeklēt jūsu pusaugu bērnu no 12 gadu vecuma.</td></tr><tr><th>Laboratorijas rezultāti</th><td colspan='3'>Mēs parasti nosūtām uz laboratoriju visus savus laboratorijas testus, kurus nevar analizēt bērnudārzā. Lai gan mūsu pakalpojumu sniedzēji sadarbosies ar jums, lai izveidotu plānu rezultātu paziņošanai, daudzi vecāki izvēlas skatīt rezultātus MyChart savā laikā. Diemžēl laboratorijas netiks rādītas Bērnu klīnikas MyChart. Mēs iesakām piezvanīt uz savu bērnu klīniku, lai pārrunātu rezultātus.</td></tr><tr><th>Mūsu vakcinācijas politika</th><td>Mēs stingri atbalstām visu pusaudžu vakcināciju un uzskatām, ka pacientu vakcinēšana ir vissvarīgākā darbība, ko veicam kā bērnu veselības aprūpes sniedzēji.<br>Lūdzu, veltiet laiku, lai pārskatītu mūsu vakcinācijas grafiku.</td><td>Mēs stingri atbalstām visu bērnu vakcināciju un uzskatām, ka bērnu vakcinēšana ir vissvarīgākā darbība, ko mēs veicam kā bērnu veselības aprūpes sniedzēji.<br>Lūdzu, veltiet laiku, lai pārskatītu mūsu vakcinācijas grafiku.</td><td>Mēs stingri atbalstām visu pusaudžu vakcināciju un uzskatām, ka pacientu vakcinēšana ir vissvarīgākā darbība, ko veicam kā bērnu veselības aprūpes sniedzēji.<br>Lūdzu, veltiet laiku, lai pārskatītu mūsu vakcinācijas grafiku.</td></tr></table>";
+    document.getElementById("APR1").innerHTML = "";
+    document.getElementById("APR2").innerHTML = "";
+    document.getElementById("APR3").innerHTML = "";
+}
+function Pusau(){
+    document.getElementById("HOP").innerHTML = "Pusaudžiem";
+    document.getElementById("APR").innerHTML = "<ul><li><b>Vingrinājums</b></li><ul type='disc'><li>Mēs iesakām pusaudžiem nodarboties ar 60 minūšu fiziskām aktivitātēm DIENĀ! Tas var šķist daudz, kamēr jūs līdzsvarojat skolas, mājas un ārpusskolas aktivitātes. Tomēr vingrinājumiem ir daudz fizisku un emocionālu priekšrocību, tāpēc pūles veltīt tam laiku ir tā vērtas. Papildus tam, ka vingrinājumi ir labvēlīgi jūsu fiziskajai veselībai, tie uzlabo arī garīgo veselību un var arī palīdzēt tikt galā ar stresu.</li><li>Ūdens ir labākais veids, kā rehidratēt slodzes laikā un pēc tās. Daži cilvēki uzskata, ka enerģijas dzēriens var dot viņiem papildu priekšrocības. Tomēr nav pierādīts, ka tie sniedz nekādu labumu un faktiski var izraisīt nopietnas sirds problēmas. Tā vietā mēs iesakām veselīgu uzturu, lai optimizētu jūsu sportisko sniegumu.</li></ul><li><b>Uzturs</b></li><ul type='disc'><li>Labi ēšanas paradumi jāsāk agri! Tagad, kad esat pusaudzis un jums ir lielāka kontrole pār to, kad un ko jūs ēdat, ir svarīgi pievērst uzmanību tam, ko un cik daudz jūs ēdat, lai jūs varētu nodrošināt savu ķermeni ar pareizo degvielu, lai tas būtu vesels, lai jūs labi attīstītos. ēšanas paradumi, kas nosaka jūs veselīgam dzīvesveidam uz visu atlikušo mūžu.</li><li>Veselīga svara sasniegšanas vai saglabāšanas atslēga ir regulāras fiziskās aktivitātes un veselīgs uzturs. Daži cilvēki domā, ka vingrošana un pareiza ēšana prasa daudz pūļu un plānošanas. Bet tā nav taisnība. Patiesībā labākais veids, kā tos ieviest mūsu dzīvē, ir veikt nelielas izmaiņas, kas pakāpeniski kļūst par mūsu ikdienas sastāvdaļu.</li></ul><li><b>Ēšanas traucējumi</b></li><ul type='disc'><li>Mūsdienās ir grūti neuztraukties par savu ķermeni! Ideālu vīriešu un sieviešu ķermeņa attēli tiek projicēti pasaulē, izmantojot sociālos medijus, reklāmu un televīziju. Var būt grūti nošķirt nereālus attēlus (pieskartus, fotografētus ideālā leņķī, neveselīgu uzturu) no realitātes.</li><li>Ēšanas traucējumi ir ļoti nopietni, un tiem var būt postoša ietekme uz jūsu veselību. Tās var ietekmēt jebkura dzimuma, rases, vecuma un etniskās izcelsmes cilvēkus. Ēšanas traucējumu izpausmes veids sievietēm un vīriešiem var atšķirties, taču tie var ietekmēt abus dzimumus.</li><li>Cilvēkiem ar negatīvu ķermeņa tēlu un tiem, kas ievēro diētu, ir risks saslimt ar ēšanas traucējumiem, piemēram, anoreksiju, bulīmiju, ēšanas traucējumiem un citiem. Ēšanas traucējumiem ir nopietnas sekas veselībai, un tiem nepieciešama ārstēšana. Tomēr atveseļošanās ir iespējama ar īpaši apmācītu veselības speciālistu un atbalstošas ģimenes palīdzību.</li><li>Ja jums vai kādam jūsu pazīstamam cilvēkam ir ēšanas traucējumi, pēc iespējas ātrāk pastāstiet par to kādam uzticamam pieaugušajam vai savam veselības aprūpes sniedzējam.</li></ul><li><b>Ķermeņa attēls</b></li><ul type='disc'><li>Veselīga ķermeņa tēls var būt izaicinājums. Ir normāli salīdzināt sevi ar citiem, un ir viegli salīdzināt sevi ar attēliem internetā vai televīzijā. Lūdzu, atcerieties, ka attēlus sociālajos medijos, televīzijā un citur bieži pārveido tehnoloģijas un tie var neatspoguļot realitāti. Tie ir arī rūpīgi atlasīti attēli — fotoattēli, kas izvēlēti, lai parādītu šo personu vislabākajā gaismā un vislabākajā leņķī, lai gan fotografējamā persona ne vienmēr tā izskatās reālajā dzīvē.</li><li>Ja neesat apmierināts ar savu ķermeni, sazinieties ar savu veselības aprūpes sniedzēju.</li></ul></ul>";
+    document.getElementById("APR1").innerHTML = "";
+    document.getElementById("APR2").innerHTML = "";
+    document.getElementById("APR3").innerHTML = "";
+}
+function Kontak(){
+    document.getElementById("HOP").innerHTML = "Kontakti";
+    document.getElementById("APR").innerHTML = "<fieldset><table><tr><th>Adrese:</th><th>Darba stundas</th><th>Jūsu komentāri:</th><td rowspan='4' width='10%'><img src='Logo_Astrošaps.png' alt='logo' id='logo'/></td></tr><tr><td align='center'>Valmieras iela 2, Rīga<br>Kārļa Ulmaņa gatve 122-k, Rīga</td><td rowspan='3' align='center'>No pirmdienas līdz piektdienai<br>8:00 līdz 19:00<br>Sestdiena<br>8:00 līdz 18:00<br>Svētdiena<br>11:30-17:30<br></td><td rowspan='3' align='center'><textarea name='komentari' rows = '5' cols = '25'></textarea></td></tr><tr><th>Tālrunis:</th></tr><tr><td align='center'>+371 13548954</td></tr></table></fieldset>";
+    document.getElementById("APR1").innerHTML = "";
+    document.getElementById("APR2").innerHTML = "";
+    document.getElementById("APR3").innerHTML = "";
+}
+function Ars(){
+    document.getElementById("HOP").innerHTML = "Iepazīšanās ar pediatrijas klīnikas komandu";
+    document.getElementById("APR").innerHTML = "<table border='1'><tr><td><button class='btnbtn Arsttt' onclick='Cheng()'>Doktors Roberts Čengs</button></td><td><button class='btnbtn Arsttt' onclick='Kūtners()'>Doktors Lorenss Kūtners</button></td><td><button class='btnbtn Arsttt' onclick='Taubs()'>Doktors Kriss Taubs</button></td><td><button class='btnbtn Arsttt' onclick='Kamerona()'>Doktors Alisona Kamerona</button></td><td><button class='btnbtn Arsttt' onclick='Hadlija()'>Doktors Remijsa Hadlija</button></td></tr></table>";
+    document.getElementById("APR1").innerHTML = "";
+    document.getElementById("APR2").innerHTML = "";
+    document.getElementById("APR3").innerHTML = "";
+}
+function Cheng(){    
+    document.getElementById("APR3").innerHTML = "<ul><li><b>Doktors Roberts Čengs</b></li><ul type='disc'><li>Bērnu klīnikā ārsts sāka strādāt pēc pediatrijas rezidentūras beigšanas. Viņš ir beidzis Ankaras Universitātes Medicīnas skolu un ir sertificēts Amerikas Pediatru koledžā. Viņš ir bijis Bērnu slimnīcas Pediatrijas nodaļas priekšsēdētājs un personāla vadītājs. Doktors Čengs turpina strādāt daudzās kvalitātes uzlabošanas un novērtēšanas komitejās.</li></ul>";
+    document.getElementById("APR2").innerHTML = "<img src='https://static.wikia.nocookie.net/house/images/9/98/House-season-8-6.jpg/revision/latest?cb=20111101050734' alt='Cheng' style='width:300px;height:400px;' id='logo'/>";
+}
+function Kūtners(){
+    document.getElementById("APR3").innerHTML = "<ul><li><b>Doktors Lorenss Kūtners</b></li><ul type='disc'><li>Doktors Kūtners praktizē Bērnu slimnīcā kopš 2025. gada.Doktors Kūtners ir ieguvis medicīnisko grādu Tālo Austrumu universitātē Manillā, Filipīnās. Viņš pabeidza pediatrijas rezidentūru Driscoll bērnu slimnīcā Korpuskristī, Teksasā. </li></ul>";
+    document.getElementById("APR2").innerHTML = "<img src='https://static.wikia.nocookie.net/house/images/4/4e/Lawrencekutner.jpg/revision/latest?cb=20090407175624' alt='Kūtners' style='width:300px;height:400px;' id='logo'/>";
+}
+function Taubs(){
+    document.getElementById("APR3").innerHTML = "<ul><li><b>Doktors Kriss Taubs</b></li><ul type='disc'><li>Doktors Taubs Bērnu slimnīcā praktizē kopš 2025. gada.  Doktors Taubs ir ieguvis ārsta grādu Monterejas Universitātē Monterejā, Nuevo Leonas štatā.  Viņš pabeidza rezidentūru Driscoll bērnu slimnīcā Korpuskristī.  Viņš brīvi pārvalda angļu, spāņu, latviešu un krievu valodu.  </li></ul>";
+    document.getElementById("APR2").innerHTML = "<img src='https://static.wikia.nocookie.net/house/images/8/85/House-season-8-4.jpg/revision/latest?cb=20111101050229' alt='Taubs' style='width:300px;height:400px;' id='logo'/>";
+}
+function Kamerona(){
+    document.getElementById("APR3").innerHTML = "<ul><li><b>Doktors Alisona Kamerona</b></li><ul type='disc'><li>Doktors Alisona Kamerona pievienojās Bērnu slimnīcai pēc pediatrijas rezidentūras pabeigšanas Driscoll bērnu slimnīcā. Viņa ir sertificēta Amerikas Pediatrijas padomē. </li></ul>";
+    document.getElementById("APR2").innerHTML = "<img src='https://static.wikia.nocookie.net/house/images/5/59/Cameron.jpg/revision/latest/scale-to-width-down/1000?cb=20210407165851' alt='Kamerona' style='width:300px;height:400px;' id='logo'/>";
+}
+function Hadlija(){
+    document.getElementById("APR3").innerHTML = "<ul><li><b>Doktors Remijsa Hadlija</b></li><ul type='disc'><li>Doktors Remijsa Hadlija praktizē Bērnu slimnīcā kopš 2025. gada.  Doktors Hadlija ir ieguvusi bakalaura grādu Kalifornijas Universitātē Irvinā un medicīnas grādu Teksasas Universitātes Medicīnas filiālē Galvestonā.  Viņa pabeidza rezidentūru Floridas Universitātē Geinsvilā. </li></ul>";
+    document.getElementById("APR2").innerHTML = "<img src='https://static.wikia.nocookie.net/house/images/0/00/Cuddy.jpg/revision/latest?cb=20150218020342' alt='Hadlija' style='width:300px;height:400px;' id='logo'/>";
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Bērnu poliklīnika</title>
+<style type="text/css">
+body {
+    font: 0.8em Arial, Helvetica, sans-serif;
+    background: #f2ce2c;
+    color: black;
+    font-family: "Times New Roman";
+    font-size: 15px;
+}
+a { color: #008BCE; }
+#container {
+    width: 1500px;
+    margin: 0 auto;
+    background: #af5312;   
+}
+#header {
+    font-size: 2.2em;
+    text-align: center;
+    padding: 5px;
+    background: #892525;
+    width: 1500px;
+}
+#nav, #aside {
+    float: left; width: 162px; padding: 5px;
+    color: white;
+}
+#content {
+    background: wheat;
+    margin: 0 175px;
+    height: 1000px;
+    padding: 10px;
+    font-size: 20px
+}
+#aside {
+    float: right;
+}
+h2 { margin: 0 0 1em; }
+#footer {
+    clear: both;
+    padding: 5px;
+    background: #892525;
+}
+#logo{
+    width: 100px;
+    float: left;
+}
+#lapas{
+    float: right;
+}
+#number{
+    float: right;
+}
+b{
+    color: orangered;
+}
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 30px;
+  cursor: pointer;
+  display: inline-block;
+  color: rgba(225,216,72,255);
+}
+.btn:hover {background-color: #a72d2d;}
+.btnbtn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 18px;
+  font-size: 30px;
+  cursor: pointer;
+  display: inline-block;
+  color: rgba(225,216,72,255);
+}
+.btnbtn:hover {
+    color:blue;
+}
+.Polik{
+    text-transform: uppercase;
+    font-family: "Lucida Handwriting";
+}
+.Arsttt{
+    color: orangered;
+}
+.txtxt{
+    flex: 1;
+    margin-left: 20px;
+}
+.imga{
+    flex: 0 0 auto;
+}
+.concon{
+    display: flex;
+    align-items: center; 
+}
+.HOP{
+    text-align: center;
+}
+
+</style>
+</head>
+<body>
+<div id="container">
+<table id="header">
+    <tr>
+        <td width="10%"><img src="Logo_Astrošaps.png" alt="logo" id="logo"/></td>
+        <td align="left"><button class="btn Polik" onclick="Polik()">Bērnu poliklīnika</button></td>
+        <td><button class="btn PMums" onclick="Mums()">Par mums</button></td>
+        <td><button class="btn Vec" onclick="Vecak()">Vecākiem</button></td>
+        <td><button class="btn Pus" onclick="Pusau()">Pusaudžiem</button></td>
+        <td><button class="btn Kont" onclick="Kontak()">Kontakti</button></td>
+    </tr>
+</table>
+<div id="nav">
+<fieldset>
+    <legend>Atrast ārstu</legend>
+    <table>
+        <tr>
+            <td>Vards:</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="vards" size="15" id="vards1" maxlength="15"></td>
+        </tr>
+        <tr>
+            <td>Uzvards:</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="uzvards" size="15" id="uzvards1" maxlength="15"></td>
+        </tr>
+        <tr>
+            <td>Berna vards:</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="Bvards" size="15" id="Bvards1" maxlength="15"></td>
+        </tr>
+        <tr>
+            <td>Berna uzvards:</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="Buzvards" size="15" id="Buzvards1" maxlength="15"></td>
+        </tr>
+        <tr>
+            <td>Berna vecums:</td>
+        </tr>
+        <tr>
+            <td><input type="number" name="Bvecums" size="15" min="0" id="Bvecums1" max="21" oninput="maxiL(this,3)"></td>
+        </tr>
+     
+        <tr>
+            <td><button type="button" onclick="Arsts()">Iesniegt</button>
+            <button type="button" onclick="attirit1()">Attīrīt</button></td>
+        </tr>
+    </table>
+
+</fieldset>
+<fieldset>
+    <legend>Pierakstīties uz tikšanos</legend>
+    <table>
+        <tr>
+            <td>Vards:</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="vards" size="15" id="vards" maxlength="15"></td>
+        </tr>
+        <tr>
+            <td>Uzvards:</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="uzvards" size="15" id="uzvards" maxlength="15"></td>
+        </tr>
+        <tr>
+            <td>Berna vards:</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="Bvards" size="15" id="Bvards" maxlength="15"></td>
+        </tr>
+        <tr>
+            <td>Berna uzvards:</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="Buzvards" size="15" id="Buzvards" maxlength="15"></td>
+        </tr>
+        <tr>
+            <td>Berna vecums:</td>
+        </tr>
+        <tr>
+            <td><input type="number" name="Bvecums" size="15" min="0" id="Bvecums" max="21" oninput="maxiL(this,3)"></td>
+        </tr>
+        <tr>
+            <td>Arsts:</td>
+        </tr>
+        <tr>
+            <td><select name = "Arsts" id="Arsts" style="font-size: 15px">
+                <option>Čengs</option>
+                <option>Kūtners</option>
+                <option>Taubs</option>
+                <option>Kamerona</option>
+                <option>Hadlija</option>
+            </select></td>
+        </tr>   
+        <tr>
+            <td>Datums:</td>
+        </tr>
+        <tr>
+            <td><input type="date" name="date" style="font-size: 13px" id="date"></td>
+        </tr>
+        <tr>
+            <td>Laiks:</td>
+        </tr>
+        <tr>
+            <td><input type="time" id="laiks" name="laiks" style="font-size: 15px" required /></td>
+        </tr>
+
+        <tr>
+            <td><button type="button" onclick="pieraksta()">Iesniegt</button> <button type="button" onclick="attirit2()">Attīrīt</button></td>
+        </tr>
+    </table>
+</fieldset>
+</div>
+<div id="aside">
+<h3>Jūsu veselība ir pirmajā vietā</h3>
+<p><i>Bērnu klīnika sniedz specializētus medicīnas pakalpojumus zīdaiņiem un bērniem Latvijā.</i></p>
+<p><i>Mūsu pediatri ir labi apmācīti vispārējā pediatrijā un daudzās apakšspecialitātēs, tostarp kardioloģijā, respiratoroloģijā, infekcijas slimībās un gastroenteroloģijā.</i></p>
+<p><i>Mēs nodrošinām zīdaiņu un bērnu imunizāciju, attīstības novērtēšanu un vispārējas pediatra konsultācijas.</i></p>
+<button class="btnbtn Kont" onclick="Ars()">Personāls</button>
+</div>
+<div id="content">
+<h2 id="HOP" class="HOP">Mēs esam atvērti visās vietās.</h2>
+<div id="APR"></div>
+<div id="APR1"></div>
+<div class="concon">
+<div id="APR2" class="imga"><img src="https://www.architectandinteriorsindia.com/cloud/2022/12/20/ALA_PC_View-from-kids-area-768x1024.jpg" alt="inside" style='width:500px;height:700px;'></div>
+<div id="APR3" class="txtxt">Cenšoties apmierināt mūsu pacientu vajadzības, Bērnu klīnika tagad piedāvā ārpusstundu konsultācijas pastāvīgajiem pacientiem, lai apmeklētu pacientus visās Rīgas nodaļās. Nakts vizīšu laiki atšķiras atkarībā no atrašanās vietas.</div>
+</div>
+</div>
+<div id="footer">&copy; Dmitrijs Astrošaps</div>
+</div>
+</body>
+</html>

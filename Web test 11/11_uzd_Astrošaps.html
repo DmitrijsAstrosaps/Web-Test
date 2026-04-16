@@ -1,0 +1,64 @@
+<html>
+<head>
+<script type="text/javascript">
+function displayAttels(Diena,Mēnesis)
+{
+    document.getElementById("demo").style.color="black";
+    if((Mēnesis=="Janvāris" && (Diena<=31 && Diena>=1)) || (Mēnesis=="Februāris" && (Diena>=1 && Diena<=29))||(Mēnesis=="Decembris" && (Diena>=1 && Diena<=31))){
+        document.getElementById("demo").innerHTML="Ziema";
+        document.getElementById("attels").src="https://lastatic.ams3.cdn.digitaloceanspaces.com/2023/02/saulite-1-1024x665.jpg";
+    }else if((Mēnesis=="Marts" && (Diena<=31 && Diena>=1)) |(Mēnesis=="Aprīlis" && (Diena<=30 && Diena>=1)) | (Mēnesis=="Maijs" && (Diena<=31 && Diena>=1))){
+        document.getElementById("demo").innerHTML="Pavasaris";
+        document.getElementById("attels").src = "https://img3.spoki.lv/upload2/articles/75/750264/images/Pavasaris-galva-1.jpg";
+    }else if((Mēnesis=="Jūnijs" && (Diena<=30 && Diena>=1)) | (Mēnesis=="Jūlijs" && (Diena<=31 && Diena>=1)) | (Mēnesis=="Augusts" && (Diena<=31 && Diena>=1))){
+        document.getElementById("demo").innerHTML="Vasara";
+        document.getElementById("attels").src = "https://static.lsm.lv/media/2014/04/large/0/2ndh.jpg";
+    }else if((Mēnesis=="Septembris" && (Diena<=30 && Diena>=1)) | (Mēnesis=="Oktobris" && (Diena<=31 && Diena>=1)) | (Mēnesis=="Novembris" && (Diena<=30 && Diena>=1))){
+        document.getElementById("demo").innerHTML="Rudens";
+        document.getElementById("attels").src = "https://rekurzeme.lv/wp-content/uploads/2023/09/road-1072821_1280-1024x682.jpg";
+    }else{
+        document.getElementById("attels").src = "https://mnogoknig.lv/uploads/products/551001/oxgy6nas-18jpg.jpg";
+        document.getElementById("demo").innerHTML="Nepareiz datums";
+        document.getElementById("demo").style.color="red";
+    }
+
+}
+function notirit(){
+    document.getElementById("Diena").value = "";
+    document.getElementById("demo").innerHTML = "";
+    document.getElementById("Mēnesis").value = "Janvāris";
+
+}
+
+</script>
+</head>
+<body>
+    <fieldset>
+        <legend>Datuma izveide</legend>
+        <table border=0>
+            <tr align="left"><td>Diena<br><input type="number" name="Diena" id="Diena"/></td>
+            <td>Mēnesis<br><select name = "Mēnesis" id="Mēnesis">
+                <option>Janvāris</option>
+                <option>Februāris</option>
+                <option>Marts</option>
+                <option>Aprīlis</option>
+                <option>Maijs</option>
+                <option>Jūnijs</option>
+                <option>Jūlijs</option>
+                <option>Augusts</option>
+                <option>Septembris</option>
+                <option>Oktobris</option>
+                <option>Novembris</option>
+                <option>Decembris</option>
+            </td></tr>
+        </table>
+        <p></p>
+        <button type="button" onclick="displayAttels(document.getElementById('Diena').value,document.getElementById('Mēnesis').value)">Iegūt attēlu !</button>
+        <button type="button" onclick="notirit()">Notīrīt !</button>
+        <p id="demo"></p>
+        <table border=2 bordercolordark="black" cellspacing="5">
+            <tr><th><img src="https://mnogoknig.lv/uploads/products/551001/oxgy6nas-18jpg.jpg" alt="Gadalaiki" id="attels"/></th></tr>
+        </table>
+    </fieldset>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<html>
+<head>
+    <script type="text/javascript">
+        var piemers=""
+        function zero(){
+            document.getElementById("result").value = document.getElementById("result").value+"0";
+            piemers = piemers+"0";
+        }
+        function one(){
+            document.getElementById("result").value = document.getElementById("result").value+"1";
+            piemers = piemers+"1";
+        }
+        function two(){
+            document.getElementById("result").value = document.getElementById("result").value+"2";
+            piemers = piemers+"2";
+        }
+        function three(){
+            document.getElementById("result").value = document.getElementById("result").value+"3";
+            piemers = piemers+"3";
+        }
+        function four(){
+            document.getElementById("result").value = document.getElementById("result").value+"4";
+            piemers = piemers+"4";
+        }
+        function five(){
+            document.getElementById("result").value = document.getElementById("result").value+"5";
+            piemers = piemers+"5";
+        }
+        function six(){
+            document.getElementById("result").value = document.getElementById("result").value+"6";
+            piemers = piemers+"6";
+        }
+        function seven(){
+            document.getElementById("result").value = document.getElementById("result").value+"7";
+            piemers = piemers+"7";
+        }
+        function eight(){
+            document.getElementById("result").value = document.getElementById("result").value+"8";
+            piemers = piemers+"8";
+        }
+        function nine(){
+            document.getElementById("result").value = document.getElementById("result").value+"9";
+            piemers = piemers+"9";
+        }
+        function divi(){
+            document.getElementById("result").value = document.getElementById("result").value+"/";
+            piemers = piemers+" / ";
+        }
+        function mult(){
+            document.getElementById("result").value = document.getElementById("result").value+"*";
+            piemers = piemers+" * ";
+        }
+        function plus(){
+            document.getElementById("result").value = document.getElementById("result").value+"+";
+            piemers = piemers+" + ";
+        }        
+        function minus(){
+            document.getElementById("result").value = document.getElementById("result").value+"-";
+            piemers = piemers+" - ";
+        }
+        function punkt(){
+            document.getElementById("result").value = document.getElementById("result").value+".";
+            piemers = piemers+".";
+        }
+        function rez(){
+            var rezul = piemers.split(' ');
+            var i=1
+            if(rezul[0]===""){
+                piemers = parseFloat(0-rezul[2]);
+                i=3
+            }else{
+                piemers = parseFloat(rezul[0]);
+            }
+            for(i;i<=rezul.length;i=i+2){
+                if (rezul[i]==="+"){
+                    if (rezul[i+1]===""){
+                        piemers+=parseFloat(0-rezul[i+3]);
+                        i+=2;
+                    }else{
+                        piemers += parseFloat(rezul[i+1]);
+                    }
+                }else if (rezul[i]==="-"){
+                    if (rezul[i+1]===""){
+                        piemers-=parseFloat(0-rezul[i+3]);
+                        i+=2;
+                    }else{
+                        piemers -= parseFloat(rezul[i+1]);
+                    }
+                }else if (rezul[i]==="*"){
+                    if (rezul[i+1]===""){
+                        piemers*=parseFloat(0-rezul[i+3]);
+                        i+=2;
+                    }else{
+                        piemers *= parseFloat(rezul[i+1]);
+                    }
+                }else if (rezul[i]==="/"){
+                    if (rezul[i+1]===""){
+                        piemers/=parseFloat(0-rezul[i+3]);
+                        i+=2;
+                    }else{
+                        piemers /= parseFloat(rezul[i+1]);
+                    }
+                }
+            }
+            document.getElementById("result").value = piemers;
+        }
+        function cleary(){
+            document.getElementById("result").value = "";
+            piemers="";
+        }
+    </script>
+    <title>Kalkulators</title>
+    <style type="text/css">
+        .button{
+            height:50px;
+            width:50px;
+        }
+        #result{
+            height:50px;
+            font-size:10pt;
+        }
+    </style>
+<meta charset="utf-8">
+</head>
+<body text=000000 bgcolor=ffffff>
+<fieldset>
+    <legend>Kalkulators</legend>
+<table border=0 align=center>
+<tr>
+    <td colspan="4">
+        <button type="button" class="button" onclick="cleary()">C</button>
+        <input type="text" name="result" id="result" height="20">
+    </td>
+</tr>
+<tr>
+<td><button type="button" class="button" onclick="seven()">7</button></td>
+<td><button type="button" class="button" onclick="eight()">8</button></td>
+<td><button type="button" class="button" onclick="nine()">9</button></td>
+<td><button type="button" class="button" onclick="divi()">/</button></td>
+</tr>
+<tr>
+<td><button type="button" class="button" onclick="four()">4</button></td>
+<td><button type="button" class="button" onclick="five()">5</button></td>
+<td><button type="button" class="button" onclick="six()">6</button></td>
+<td><button type="button" class="button" onclick="mult()">*</button></td>
+</tr>
+<tr>
+<td><button type="button" class="button" onclick="one()">1</button></td>
+<td><button type="button" class="button" onclick="two()">2</button></td>
+<td><button type="button" class="button" onclick="three()">3</button></td>
+<td><button type="button" class="button" onclick="minus()">-</button></td>
+</tr>
+<tr>
+<td><button type="button" class="button" onclick="zero()">0</button></td>
+<td><button type="button" class="button" onclick="punkt()">.</button></td>  
+<td><button type="button" class="button" onclick="rez()">=</button></td>
+<td><button type="button" class="button" onclick="plus()">+</button></td>
+</tr>
+</table>
+</fieldset>
+</body>
+</html>
